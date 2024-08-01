@@ -8,3 +8,4 @@ Code du projet 6 d'intégrateur web.
  - Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
 # Sophie-Bluel
 # Sophie-Bluel
+# Sophie-Bluel
