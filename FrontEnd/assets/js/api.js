@@ -68,13 +68,14 @@ async function fetchCategories() {
     // Create the element "allFilters"
     const allFilters = document.createElement('p');
     allFilters.textContent = 'Tous';
+    allFilters.classList.add('filter-selected');
     categoryList.appendChild(allFilters);
         
     categories.forEach((category) => {
         const filter = document.createElement("p");            
         categoryList.appendChild(filter);
         filter.innerText = category.name;
-        filter.id = category.id;    
+        filter.id = category.id;   
     });
 
     // Listen for clicks on the filters buttons
@@ -97,7 +98,30 @@ async function fetchCategories() {
             }
         });
 
-        // Pour le filtre Tous - réinitialisation de l'affichage 
+    //  // For "Tous" filter - reset display only if other filters are not selected
+    //  if (categoryId === 'allFilters') {
+    //     const otherFiltersSelected = document.querySelector('.filters p.filter-selected:not(allFilters)');
+    //     if (!otherFiltersSelected) {
+    //         // Select all the images in the gallery
+    //         document.querySelectorAll('.gallery img').forEach(image => {
+    //             // Change display to "block" for all items
+    //             image.parentElement.style.display = 'block';
+    //         });
+    //     }
+    // } else {
+    //     // Update the class of the selected filter
+    //     document.querySelectorAll('.filters p').forEach((filter) => {
+    //         if (filter.id === categoryId) {
+    //             filter.classList.add('filter-selected');
+    //         } else {
+    //             filter.classList.remove('filter-selected'); // Remove the "filter-selected" class from other filters
+    //         }
+    //     });
+    // }
+
+        
+
+       // For "Tous" filter - reset diplay 
         allFilters.addEventListener('click', function () {
             // Select all the images in the gallery
             document.querySelectorAll('.gallery img').forEach(image => {
@@ -113,7 +137,7 @@ async function fetchCategories() {
             } else {
                 filter.classList.remove('filter-selected'); // Remove the "filter-selected" class from other filters
             }
-        });        
+        });     
     }
         
   } catch (error) {
