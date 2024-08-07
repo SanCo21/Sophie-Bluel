@@ -125,14 +125,13 @@ li a:hover {
 	color: #B1663C;
 }
 
-
 li:hover {
 	color: #B1663C;
 }
 
-/* li:visited {
+.active {
 	font-weight: bold;
-} */
+}
 
 #introduction {
 	display: flex;
@@ -163,7 +162,120 @@ li:hover {
 
 #portfolio h2 {
 	text-align: center;
+	margin-top: 4em;
 	margin-bottom: 1em;
+}
+
+#admin-link {
+	position: absolute;	
+	margin-top: 5.5em;
+	margin-left: 20%;	
+	top: 577px;
+	left: 500px;
+	font-size: 14px;
+	text-decoration: none;
+	color: black;
+	display: none;
+}
+
+#admin-link a, #admin-link i {		
+	text-decoration: none;
+	color: black;
+}
+
+.modal {
+	position: fixed;
+	z-index: 1;    
+	top: 45em;
+	left: 25em;
+	width: 50%;
+	height: 45%;
+	border-radius: 10px;
+	background-color: white;
+	display: none;
+	/* overflow: auto; */
+}
+
+.modal-content {	
+	margin: 5em;
+	margin-bottom: 2em;
+	padding-bottom: 60px;
+	border-style: solid;
+	border-width: 1px;	
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #B3B3B3;
+	/* background-color: #B1663C; */
+}
+
+.modal-content p {
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+	margin: 10% auto;	
+}
+
+.modal-gallery{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 5px;
+	grid-row-gap: 20px;
+}
+
+.modal-gallery figure {
+	position: relative;
+	display: inline-block;
+	margin: 5px;
+	/* width: 60%; */
+}
+
+.modal-gallery img {
+	width: 100%;
+}
+
+.delete-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0.525em;
+	right: 0.525em;	
+	width: 0.8em;
+	height: 0.8em;
+	cursor: pointer;	
+	padding: 0.3em;
+	background-color: black;
+	color: white;
+	font-size: 1em;
+}
+
+#add-photo {
+	display: flex;
+	justify-content: center;
+	bottom: 2em;
+	width: 237px;
+	height: 36px;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+.close {
+	position: absolute;
+	top: 1em;
+	right: 1em;	
+    color: black;
+    /* float: right; */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .gallery {
@@ -302,6 +414,12 @@ input[type="submit"]{
 #login a {
 	font-size: 14px;
 	color: black;
+}
+
+#error-message {	
+	margin-top: 50px;
+	display: none;
+	color: red;
 }
 
 footer nav ul {

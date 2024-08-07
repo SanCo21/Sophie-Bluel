@@ -1,3 +1,19 @@
+
+console.log('script loaded')
+
+// Function to add the admin link
+function addAdminLink() {
+    const adminLink = document.getElementById('admin-link');    
+    if (adminLink) { 
+        console.log('Adding admin link');
+    adminLink.innerHTML ='<a href="modal1" id="openModalLink"><i class="fa-regular fa-pen-to-square"></i>modifier</a>';
+    adminLink.style.display = 'block'; // Ensure the link is displayed
+} else {
+    console.error('Element with class "admin-link" not found');
+}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
 function validateEmail(email) {
     let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+") 
     return emailRegExp.test(email);  
@@ -36,8 +52,6 @@ document.getElementById('password').addEventListener('change', (event) => {
     console.log(passwordValue === "" ? 'Le champ mdp est vide' : 'Le champ mdp est rempli');
 });
 
-
-
 // Event listener for the login button click
 document.getElementById('login-button').addEventListener('click', async() => {
     const email = document.getElementById('email').value;
@@ -46,34 +60,52 @@ document.getElementById('login-button').addEventListener('click', async() => {
     // Creating the user object
     const user = { email, password };
 
-    // Define the token
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4";
-
     try {
         // Sending a POST request for authentication
         const response = await fetch("http://localhost:5678/api/users/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + token
-             },
+                'Authorization': 'application/json'
+            },
             body: JSON.stringify(user)
-         });
+        });
+
+        console.log('HTTP Status Code:', response.status);
+        console.log('Response Headers:', response.headers);
         
         // Checking the API response
         if (response.ok) {
             const data = await response.json();
             console.log('API Response:', data);
 
-            // Saving the token in local storage
-            localStorage.setItem('token', data.token);
+            // Define the token
+            const token = data.token
 
+            // Saving the token in local storage
+            localStorage.setItem('token', data.token); 
+            
+            // Add the admin link
+            addAdminLink();
+            
             // Redirecting to index.html after successful authentication
-            window.location.href = 'index.html';
+            window.location.href = 'index.html';                        
+           
         } else {
             console.log('API call failed with status:', response.status);
+            displayErrorMessage('Échec de l\'authentification. Veuillez vérifier vos identifiants.');
         }
     } catch (error) {
         console.log('Authentification failed', error);
+        displayErrorMessage('Une erreur est survenue lors de l\'authentification. Veuillez réessayer.');
     }   
+});
+
+// Function to display error message
+function displayErrorMessage(message) {
+    const errorMessageDiv = document.getElementById('error-message');
+    errorMessageDiv.textContent = message;
+    errorMessageDiv.style.display = 'block';
+}
+
 });

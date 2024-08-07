@@ -15,7 +15,9 @@ async function fetchWorks() {
   
         // Selecting and initialize the div for the works
         const gallery = document.querySelector(".gallery");
+        const modalGallery = document.querySelector('.modal-gallery');
         gallery.innerHTML = "";
+        modalGallery.innerHTML = "";
   
         // Creating the works from the API data
         works.forEach((work) => {
@@ -40,6 +42,29 @@ async function fetchWorks() {
   
             // Connecting the card to the gallery div tag
             gallery.appendChild(card);
+
+            // Cloning the img ekement for the modal gallery
+            const modalCard = document.createElement("figure");
+            const modalCardImg = cardImg.cloneNode(true);
+
+            // Create delete icon container
+            const deleteIconContainer = document.createElement("div");
+            deleteIconContainer.className = "delete-icon-container";
+            
+            // Creating delete icon
+            const deleteIcon = document.createElement("i");
+            deleteIcon.className = "fa-solid fa-trash-can";
+            deleteIcon.onclick = function() {
+                modalCard.remove();
+            };
+
+            // Adding delete icon to its container
+            deleteIconContainer.appendChild(deleteIcon);
+
+            // Adding img and delete icon to the modal card
+            modalCard.appendChild(modalCardImg);
+            modalCard.appendChild(deleteIconContainer);
+            modalGallery.appendChild(modalCard);
         });
     
     } catch (error) {
