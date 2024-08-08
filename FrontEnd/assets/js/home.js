@@ -44,6 +44,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get the modal
     const modal = document.getElementById("admin-modal");
+    const overlay =document.getElementById("overlay")
 
     // Get the link that opens the modal
     const adminLink = document.getElementById("admin-link");
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('token');
         if (token) {
             modal.style.display = "block";
+            overlay.style.display = "block";
         } else {
             alert('Vous devez être connecté pour accéder aux modifications.');
         }
