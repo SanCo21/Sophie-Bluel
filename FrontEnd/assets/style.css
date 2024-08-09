@@ -247,8 +247,7 @@ body.with-banner {
 }
 
 .modal-content {	
-	margin: 5em;
-	margin-bottom: 2em;
+	margin: 5em 8em 2em 8em;
 	padding-bottom: 60px;
 	border-style: solid;
 	border-width: 1px;	
@@ -259,11 +258,13 @@ body.with-banner {
 	/* background-color: #B1663C; */
 }
 
-.modal-content p {
+.modal-content h3 {
 	display: flex;
 	justify-content: center;
 	font-size: 30px;
-	margin: 10% auto;	
+	font-weight: 400;
+	margin: 10% auto;
+	margin-top: 0;
 }
 
 .modal-gallery{
@@ -301,7 +302,7 @@ body.with-banner {
 	font-size: 1em;
 }
 
-#add-photo {
+#add-photo, #validate {
 	display: flex;
 	justify-content: center;
 	bottom: 2em;
@@ -309,7 +310,76 @@ body.with-banner {
 	height: 36px;
 	font-size: 15px;
 	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
+	border: none;
+}
+
+#modal-form {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	margin-top:30px;
+}
+
+#modal-form input, #modal-form select {
+	height: 50px;
+	font-size: 15px;
+	color: rgba(68, 68, 68, 1);
+	border: rgba(255, 255, 255, 1);
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#modal-form label {
+	margin: 2em 0 1em 0;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.picture {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(232, 241, 246, 1);
+	padding: 2em;	
+}
+
+.picture i {
+	font-size: 80px;
+	color: rgba(185, 197, 204, 1)
+}
+
+.picture p {
+	font-size: 10px;
+	color: rgba(68, 68, 68, 1);
+	margin: 0;
+}
+
+#picture-button {
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 500;
+	border: none;
+	color: rgba(48, 102, 133, 1);
+	background: rgba(203, 214, 220, 1);
+	margin-top: 1em;
+	width: 173px;
+	height: 36px;
+	margin-bottom: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 21px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #000;
+    font-weight: bold;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 .close {
@@ -323,7 +393,9 @@ body.with-banner {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.back-arrow:hover,
+.back-arrow:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
