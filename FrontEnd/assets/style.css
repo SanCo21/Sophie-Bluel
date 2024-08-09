@@ -318,7 +318,7 @@ body.with-banner {
 	display: flex;
 	flex-direction: column;
 	text-align: left;
-	margin-top:30px;
+	margin-top:15px;
 }
 
 #modal-form input, #modal-form select {
@@ -335,7 +335,10 @@ body.with-banner {
 	font-weight: bold;
 }
 
-.picture {
+.upload {
+	position: relative;
+	max-width: 100%;
+	height: 170px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -344,28 +347,69 @@ body.with-banner {
 	padding: 2em;	
 }
 
-.picture i {
+.upload i {	
+	display: flex;
+	justify-content: center;
 	font-size: 80px;
 	color: rgba(185, 197, 204, 1)
 }
 
-.picture p {
+.upload p {
 	font-size: 10px;
 	color: rgba(68, 68, 68, 1);
 	margin: 0;
 }
 
-#picture-button {
+.upload img {
+	position: absolute;
+	/* max-width: 50%;  */
+	width: 100%;
+    height: 100%;
+    object-fit: contain;
+	display: none;
+}
+#preview {
+	display: none;
+}
+
+.upload .file-label {
+    /* z-index: 1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+#photo-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	font-family: Work Sans;
 	font-size: 14px;
 	font-weight: 500;
 	border: none;
+	border-radius: 50px;
 	color: rgba(48, 102, 133, 1);
 	background: rgba(203, 214, 220, 1);
 	margin-top: 1em;
 	width: 173px;
 	height: 36px;
-	margin-bottom: 10px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {	
+    /* display: inline-block; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    padding: 10px 20px;
+    color: rgba(48, 102, 133, 1);
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
 }
 
 .arrow {

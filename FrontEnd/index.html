@@ -90,13 +90,17 @@
         <span class="close">&times;</span>
 		<span class="arrow" id="back-arrow"><i class="fa-solid fa-arrow-left"></i></span>
         <h3>Ajout photo</h3>		
-		<div class="picture">
-			<label for="photo-upload"><i class="fa-regular fa-image"></i></label>
-			<input type="submit" value="+ Ajouter photo" id="picture-button">
+		<div class="upload" id="drop-zone">
+			<label for="photo-upload" class="file-label">
+				<i class="fa-regular fa-image"></i>
+				<span id="photo-button">+ Ajouter photo</span>
+			</label>
+			<input type="file" class="file-input" id="photo-upload" name="photo-upload" accept="image/*">
 			<p>jpg, png : 4mo max</p>
-		</div>
-		<div>
-			<form action="#" method="post" id="modal-form">
+			<img id="preview" src="" alt="Prévisualisation">
+            <!-- <span id="file-name"></span> -->
+		</div>		
+		<form action="#" method="post" id="modal-form">
 			<label for="title">Titre</label>
 			<input type="text" name="title" id="title">			
 			<label for="category">Catégorie</label>
@@ -105,8 +109,7 @@
 				<option value="option2">Option 2</option>
 				<option value="option3">Option 3</option>
 			</select>			
-			</form>
-		</div>		
+		</form>
     </div>
 	<input type="submit" value="Valider" id="validate">
 </div>
