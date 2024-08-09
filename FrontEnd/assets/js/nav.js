@@ -16,15 +16,17 @@ if (currentNavLinkId) {
     document.getElementById(currentNavLinkId).classList.add('active');
 }
 
-// Check if user is logged in and update nav link
-// const token = localStorage.getItem('token');
-// if (token) { 
-//     const navLog = document.getElementById('nav-log');
-//     if (navLog) {
-//         navLog.innerHTML = '<a href="#" id="logout">Logout</a>';
-//         navLog.addEventListener('click', () => {
-//             // localStorage.removeItem('token');
-//             window.location.href = 'login.html';
-//         });
-//     }
-// }
+//Check if user is logged in and update nav link
+const token = localStorage.getItem('token');
+if (token) { 
+    const navLog = document.getElementById('nav-log');
+    if (navLog) {
+        navLog.innerHTML = '<a href="#" id="logout">Logout</a>';
+        navLog.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+            navLog.innerHTML = '<a href="login.html">Login</a>';
+            
+        });
+    }
+}
