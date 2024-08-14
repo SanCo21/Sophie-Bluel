@@ -1,3 +1,5 @@
+import { loginUser } from './api.js';
+
 console.log('script loaded')
 
 // Function to add the admin link
@@ -49,29 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleLoginClick(event) {
         event.preventDefault();
         const { email, password } = getFormValues();
-        const user = { email, password };
+        // const user = { email, password };
 
         try {
-            // Sending a POST request for authentication
-            const response = await fetch("http://localhost:5678/api/users/login", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
+                const data = await loginUser(email, password);
 
-            console.log('HTTP Status Code:', response.status);
-            console.log('Response Headers:', response.headers);
-            
-            // Checking the API response
-            if (response.ok) {
-                const data = await response.json();
-                console.log('API Response:', data);              
-
-                // Saving the token in local storage
-                localStorage.setItem('token', data.token); 
+                // Saving the token and userId in local storage
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('userId', data.userId);
                 
                 // Add the admin link
                 addAdminLink();
@@ -79,12 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Redirecting to index.html after successful authentication
                 window.location.href = 'index.html';                        
             
-            } else {
-                console.log('API call failed with status:', response.status);
-                displayErrorMessage('Échec de l\'authentification. Veuillez vérifier vos identifiants.');
-            }
-        } catch (error) {
-            console.log('Authentification failed', error);
+        } catch (error) {            
             displayErrorMessage('Une erreur est survenue lors de l\'authentification. Veuillez réessayer.');
         } 
     }; 

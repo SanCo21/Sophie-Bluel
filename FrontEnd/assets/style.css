@@ -168,22 +168,30 @@ li:hover {
 	flex-wrap: wrap;
 }
 
-#portfolio h2 {
+#portfolio .title {
 	display: flex;
-	justify-content: center;	
+	justify-content: center;
 	align-items: center;
 	margin-top: 4em;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	position: relative;
 }
 
+/* #portfolio h2 {
+	display: flex; 
+	justify-content: center;	
+	align-items: center; 
+	margin-top: 4em; 
+	margin-bottom: 1em;
+	position: absolute;
+} */
+
 #admin-link {
 	position: absolute;
-	right: 28%;
-	top: 5.3%;
-	
+	right: -60%;
+	top: 60%;	
 	/* margin-left: 1em; */
-	transform: translateX(-50%);
+	transform: translateY(-50%);
 	font-size: 14px;
 	text-decoration: none;
 	color: black;
@@ -237,7 +245,7 @@ body.with-banner {
 	z-index: 2;    
 	top: 50%;
 	left: 50%;
-	width: 50%;
+	width: 60%;
 	height: auto;
 	border-radius: 10px;
 	background-color: white;
@@ -248,7 +256,7 @@ body.with-banner {
 
 .modal-content {	
 	margin: 5em 8em 2em 8em;
-	padding-bottom: 60px;
+	padding-bottom: 70px;
 	border-style: solid;
 	border-width: 1px;	
 	border-top: none;
@@ -271,19 +279,20 @@ body.with-banner {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 5px;
-	grid-row-gap: 20px;
+	grid-column-gap: 8px;
+	grid-row-gap: 30px;
 }
 
 .modal-gallery figure {
 	position: relative;
 	display: inline-block;
-	margin: 5px;
+	/* margin: 5px; */
 	/* width: 60%; */
 }
 
 .modal-gallery img {
 	width: 100%;
+	
 }
 
 .delete-icon-container {
@@ -302,18 +311,6 @@ body.with-banner {
 	font-size: 1em;
 }
 
-#add-photo, #validate {
-	display: flex;
-	justify-content: center;
-	bottom: 2em;
-	width: 237px;
-	height: 36px;
-	font-size: 15px;
-	margin-top: 40px;
-	margin-bottom: 60px;
-	border: none;
-}
-
 #modal-form {
 	display: flex;
 	flex-direction: column;
@@ -322,7 +319,7 @@ body.with-banner {
 }
 
 #modal-form input, #modal-form select {
-	height: 50px;
+	height: 51px;
 	font-size: 15px;
 	color: rgba(68, 68, 68, 1);
 	border: rgba(255, 255, 255, 1);
@@ -330,9 +327,28 @@ body.with-banner {
 }
 
 #modal-form label {
-	margin: 2em 0 1em 0;
+	margin: 1.5em 0;
 	font-size: 15px;
 	font-weight: bold;
+}
+
+#add-photo, #validate {
+	display: flex;
+	justify-content: center;
+	bottom: 2em;
+	width: 237px;
+	height: 36px;
+	font-size: 15px;
+	margin-top: 20px;
+	margin-bottom: 55px;
+	border: none;
+}
+
+/* button:disabled, */
+input[type="submit"]:disabled {
+    background-color: #A7A7A7;
+	color: white;
+    cursor: not-allowed;
 }
 
 .upload {
@@ -344,13 +360,13 @@ body.with-banner {
 	align-items: center;
 	justify-content: center;
 	background: rgba(232, 241, 246, 1);
-	padding: 2em;	
+	/* padding: 0.5em;	 */
 }
 
 .upload i {	
 	display: flex;
 	justify-content: center;
-	font-size: 80px;
+	font-size: 76px;
 	color: rgba(185, 197, 204, 1)
 }
 
@@ -376,6 +392,7 @@ body.with-banner {
     /* z-index: 1; */
     display: flex;
     flex-direction: column;
+	justify-content: center;
     align-items: center;
     cursor: pointer;
 }
@@ -386,12 +403,12 @@ body.with-banner {
 	align-items: center;
 	font-family: Work Sans;
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: bold;	
+	color: rgba(48, 102, 133, 1);
 	border: none;
 	border-radius: 50px;
-	color: rgba(48, 102, 133, 1);
 	background: rgba(203, 214, 220, 1);
-	margin-top: 1em;
+	margin-top: 0.5em;
 	width: 173px;
 	height: 36px;
 }
@@ -405,7 +422,7 @@ body.with-banner {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     color: rgba(48, 102, 133, 1);
     cursor: pointer;
     border-radius: 50px;
@@ -617,12 +634,12 @@ footer li {
 	}
 }
 
-@media (max-width: 1140px) {
+/* @media (max-width: 1140px) {
     #admin-link {
-        position: static; 
+        position: absolute; 
         margin-top: 10px;
 		margin-left: 60px;
 		margin-bottom: 20px; 
         display: block;
     }
-}
+} */
