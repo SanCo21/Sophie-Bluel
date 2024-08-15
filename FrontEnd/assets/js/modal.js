@@ -99,6 +99,7 @@ const categoryInput = document.getElementById('category');
 photoButton.addEventListener('click', () => {    
     console.log('photoButton clicked');
     fileInput.click(); // Triggering the file input click
+    event.preventDefault();
 });
 
 let imageCounter = 0;
@@ -151,11 +152,11 @@ function handleFileChange() {
 
 fileInput.addEventListener('change', handleFileChange);
 
-function resetFileInput() {
-    fileInput.removeEventListener('change', handleFileChange); // Disconnecting the event
-    fileInput.value = ''; // Clearing the input
-    fileInput.addEventListener('change', handleFileChange); // Reconnecting the event
-}
+// function resetFileInput() {
+//     fileInput.removeEventListener('change', handleFileChange); // Disconnecting the event
+//     fileInput.value = ''; // Clearing the input
+//     fileInput.addEventListener('change', handleFileChange); // Reconnecting the event
+// }
 
 const checkFormFields = () => {
     const allFieldsFilled = fileInput.value && titleInput.value && categoryInput.value;
@@ -193,13 +194,15 @@ validateButton.addEventListener('click', async function(event) {
     console.log('Image File:', file);
 
     try {
-        await uploadImage(formData);
-        alert('Image téléchargée avec succès !');
+        await uploadImage(formData); // Waiting for the image to be downloaded
+        // alert('Image téléchargée avec succès !');
         document.getElementById('photo-modal').style.display = "none";
         document.getElementById('overlay').style.display = "none";
 
         // Selecting and initialize the div for the works
         resetGallery();
+
+        resetFileInput();
 
         // Updating the galleries
         await displayWorks();
@@ -212,18 +215,18 @@ validateButton.addEventListener('click', async function(event) {
     
 
 
-// function resetFileInput() {
-//     fileInput.value = ''; // Reset the input
-//     resetPreview();
-// }
+function resetFileInput() {
+    fileInput.value = ''; // Reset the input
+    resetPreview();
+}
 
 function resetPreview() {
     preview.src = '';
-    preview.style.display = 'none';
     preview.id = ''; // Clearing the ID
-    photoButton.style.display = 'block';
+    preview.style.display = 'none';    
+    photoButton.style.display = 'flex';
     uploadText.style.display = 'block';
-    fileInput.value = '';                
+    // fileInput.value = '';                
 }
 
 
@@ -237,7 +240,7 @@ export const setupDeleteIcon = (deleteIcon, modalCard) => {
             try {
                 const response = await deletePhoto(workId);
                 console.log('Réponse du serveur:', response);        
-                alert('Projet supprimé avec succès.');
+                // alert('Projet supprimé avec succès.');
                 // modalCard.remove();
 
                 // Selecting and initialize the div for the works
