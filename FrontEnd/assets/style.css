@@ -65,7 +65,7 @@ main {
 	width: 100%;
     max-width: 1440px;
     min-width: 320px;
-    /* padding: 0 50px; */
+    padding: 0 50px;
     box-sizing: border-box;
 }
 
@@ -140,7 +140,7 @@ li:hover {
 }
 
 #introduction figure {
-	flex: 1
+	flex: 1.2
 }
 
 #introduction img {
@@ -159,6 +159,7 @@ li:hover {
 
 #introduction p {
 	margin-bottom: 0.5em;
+	margin-right: 5em;
 }
 
 #portfolio {
@@ -167,6 +168,8 @@ li:hover {
     align-items: center;
 	position: relative;
 	flex-wrap: wrap;
+	margin-left: 50px;
+	margin-right: 50px;
 }
 
 #portfolio .title {
@@ -482,8 +485,8 @@ input[type="submit"]:disabled {
 
 .gallery img {
 	/* width: 100%; */
-	width: 365px;
-	height: 490px;
+	width: 305px;
+	height: 407px;
 	object-fit: cover;
 }
 
@@ -573,8 +576,10 @@ input[type="submit"]{
 
 #login {
 	width: 37%;
+	height: 50%;
 	margin: auto;
 	margin-top: 150px;
+	margin-bottom: 150px;
 }
 
 #login > * {
@@ -622,7 +627,7 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
-	margin-top: 400px;	
+	/* margin-top: 400px;	 */
 }
 
 footer li {
