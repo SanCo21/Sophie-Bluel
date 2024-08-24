@@ -1,5 +1,5 @@
 import { deletePhoto, fetchCategories, uploadImage } from './api.js';
-import { displayWorks, resetGallery } from './home.js';
+import { displayWorks, resetGallery, updateHomeGallery } from './home.js';
 
 // document.addEventListener('DOMContentLoaded', () => {
 // Get the modal
@@ -183,7 +183,7 @@ validateButton.addEventListener('click', async function(event) {
         formData.append('image', file);
     } else {
         console.error('Aucun fichier image sélectionné');
-        alert('Veuillez sélectionner une image à télécharger.');
+        alert('Veuillez sélectionner une image à télécharger.');        
         return;
     }
 
@@ -202,7 +202,12 @@ validateButton.addEventListener('click', async function(event) {
         // Selecting and initialize the div for the works
         resetGallery();
 
+        // Reseting the form
         resetFileInput();
+        resetModalForm();
+
+        // Reseting the filter to "Tous"
+        resetFilterToAll();
 
         // Updating the galleries
         await displayWorks();
@@ -214,10 +219,19 @@ validateButton.addEventListener('click', async function(event) {
 });
     
 
-
 function resetFileInput() {
     fileInput.value = ''; // Reset the input
     resetPreview();
+}
+
+function resetModalForm() {
+    titleInput.value = '';
+    categoryInput.value = '';
+}
+
+function resetFilterToAll() {
+    const allFilters = document.querySelector('.filters p:first-child');
+    allFilters.click(); // Simuler un clic sur le filtre "Tous"
 }
 
 function resetPreview() {
@@ -233,21 +247,28 @@ function resetPreview() {
 export const setupDeleteIcon = (deleteIcon, modalCard) => {
 
     deleteIcon.onclick = async () => {
+        event.preventDefault();
         const workId = modalCard.getAttribute('work-id'); // photo ID is stocked in the attribute of the modalCard element
         console.log('workId récupéré:', workId);
 
         if (workId) {
             try {
                 const response = await deletePhoto(workId);
-                console.log('Réponse du serveur:', response);        
-                // alert('Projet supprimé avec succès.');
-                // modalCard.remove();
+                console.log('Réponse du serveur:', response);
+                modalCard.remove();               
 
                 // Selecting and initialize the div for the works
-                resetGallery();
+                // resetGallery();
+                // const modalGallery = document.querySelector('.modal-gallery');
+                // modalGallery.innerHTML = "";
 
-                // Updating the gallery after deleting
-                await displayWorks();
+                // Updating the home gallery after deleting
+                await updateHomeGallery();
+                resetFilterToAll()
+                    
+                // Updating the galleries
+                // await displayWorks();
+
 
             } catch(error) {
                 console.error('Erreur:', error);
@@ -258,37 +279,5 @@ export const setupDeleteIcon = (deleteIcon, modalCard) => {
             alert('Aucun projet à supprimer.');
         }
     };
-};          
-
-
-// const dropZone = document.getElementById('drop-zone');
-// const photoInput = document.getElementById('photo-upload');
-
-// dropZone.addEventListener('dragover', (event) => {
-//     event.preventDefault();
-//     dropZone.classList.add('dragover');
-// });
-
-// dropZone.addEventListener('dragleave', () => {
-//     dropZone.classList.remove('dragover');
-// });
-
-// dropZone.addEventListener('drop', (event) => {
-//     event.preventDefault();
-//     dropZone.classList.remove('dragover');
-//     const files = event.dataTransfer.files;
-//     if (files.length > 0) {
-//         photoInput.files = files;
-//     }
-// });
-
-// dropZone.addEventListener('click', () => {
-//     photoInput.click();
-// });
-
-// photoInput.addEventListener('change', () => {
-//     photoInput.addEventListener('change', () => {
-//         const fileName = photoInput.files[0].name;
-//         console.log(`Fichier sélectionné : ${fileName}`);
-//     });
-// });
+    
+};

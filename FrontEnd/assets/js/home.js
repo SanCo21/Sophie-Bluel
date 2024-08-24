@@ -67,6 +67,33 @@ export async function displayWorks() {
 // Calling displayWorks function
 displayWorks();
 
+export async function updateHomeGallery() {
+    const works = await fetchWorks(); // Waiting for fetchWorks function
+
+    if (works) {
+        const homeGallery = document.querySelector('.gallery');
+        homeGallery.innerHTML = ''; 
+
+        works.forEach((work) => {
+            
+            const card = document.createElement("figure");
+            const cardImg = document.createElement("img");
+            const cardCaption = document.createElement("figcaption");
+
+            cardImg.src = work.imageUrl;
+            cardImg.alt = work.title;
+            cardImg.setAttribute('category', work.categoryId);
+            cardCaption.innerText = work.title;
+
+            card.appendChild(cardImg);
+            card.appendChild(cardCaption);
+
+            homeGallery.appendChild(card);
+        });
+
+        await displayCategories();
+    }
+}
 
 async function displayCategories() {
     const categories = await fetchCategories(); // Waiting for the response of fetchCategories function
@@ -74,6 +101,7 @@ async function displayCategories() {
     if (categories) {
         // Creating HTML elements for filters)
         const categoryList = document.querySelector(".filters");
+        categoryList.innerHTML = ''; // Réinitialiser les filtres existants
             
         // Creating the element "allFilters"
         const allFilters = document.createElement('p');

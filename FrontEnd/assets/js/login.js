@@ -54,17 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // const user = { email, password };
 
         try {
-                const data = await loginUser(email, password);
+            const data = await loginUser(email, password);
 
-                // Saving the token and userId in local storage
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('userId', data.userId);
-                
-                // Add the admin link
-                addAdminLink();
-                
-                // Redirecting to index.html after successful authentication
-                window.location.href = 'index.html';                        
+            // Saving the token and userId in local storage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', data.userId);
+            
+            // Add the admin link
+            addAdminLink();
+            
+            // Redirecting to index.html after successful authentication
+            window.location.href = 'index.html';                        
             
         } catch (error) {            
             displayErrorMessage('Une erreur est survenue lors de l\'authentification. Veuillez réessayer.');

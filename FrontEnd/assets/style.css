@@ -58,6 +58,7 @@ body {
 	/* margin: 10%; */
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color: #FFFEF8;
 }
 
 main {
@@ -245,7 +246,7 @@ body.with-banner {
 	z-index: 2;    
 	top: 50%;
 	left: 50%;
-	width: 60%;
+	width: 50%;
 	height: auto;
 	border-radius: 10px;
 	background-color: white;
@@ -255,7 +256,7 @@ body.with-banner {
 }
 
 .modal-content {	
-	margin: 5em 8em 2em 8em;
+	margin: 5em 6.5em 2em 6.5em;
 	padding-bottom: 70px;
 	border-style: solid;
 	border-width: 1px;	
@@ -277,10 +278,15 @@ body.with-banner {
 
 .modal-gallery{
 	width: 100%;
+	/* display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	row-gap:1.875em; */
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 8px;
-	grid-row-gap: 30px;
+	grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+	grid-column-gap: 0.5em;
+	grid-row-gap: 1.875em;
 }
 
 .modal-gallery figure {
@@ -291,24 +297,26 @@ body.with-banner {
 }
 
 .modal-gallery img {
-	width: 100%;
-	
+	display: block;
+	width: 5.5em;
+	height: 7.5em;
+	object-fit: cover;	
 }
 
 .delete-icon-container {
+	position: absolute;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	position: absolute;
+	justify-content: center;	
 	top: 0.525em;
-	right: 0.525em;	
+	right: 1em;	
 	width: 0.8em;
 	height: 0.8em;
 	cursor: pointer;	
 	padding: 0.3em;
 	background-color: black;
 	color: white;
-	font-size: 1em;
+	font-size: 0.8em;
 }
 
 #modal-form {
@@ -342,6 +350,7 @@ body.with-banner {
 	margin-top: 20px;
 	margin-bottom: 55px;
 	border: none;
+	cursor: pointer;
 }
 
 /* button:disabled, */
@@ -384,6 +393,7 @@ input[type="submit"]:disabled {
     object-fit: contain;
 	display: none;
 }
+
 #preview {
 	display: none;
 }
@@ -471,7 +481,10 @@ input[type="submit"]:disabled {
 }
 
 .gallery img {
-	width: 100%;
+	/* width: 100%; */
+	width: 365px;
+	height: 490px;
+	object-fit: cover;
 }
 
 figcaption {
@@ -482,19 +495,20 @@ figcaption {
 	display: flex;
 	justify-content: center;
 	width: 100%;	
+	color:  #1D6154;
 }
 
-.filters p {	
+.filters p  {	
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Syne';
 	font-size: 16px;
-	font-weight: 700;
-	
+	font-weight: 700;	
 	margin : 1em 0.3em 4em 0.3em ;
-	padding: 10px 20px 10px 20px;
+	padding: 0.7em 1em 0.7em 1em;
+	min-width: 80px;
 	/* width: 180px; */
 	/* width: auto; */
 	text-align: center;
@@ -502,8 +516,6 @@ figcaption {
 	border: #1D6154;
 	border-style: solid;
 	border-width: 1px;
-	/* color:  #1D6154; */
-	/* background-color:white; */
 }
 
 .filter-selected {
