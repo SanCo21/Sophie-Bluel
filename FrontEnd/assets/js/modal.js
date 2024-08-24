@@ -196,8 +196,8 @@ validateButton.addEventListener('click', async function(event) {
     try {
         await uploadImage(formData); // Waiting for the image to be downloaded
         // alert('Image téléchargée avec succès !');
-        document.getElementById('photo-modal').style.display = "none";
-        document.getElementById('overlay').style.display = "none";
+        // document.getElementById('photo-modal').style.display = "none";
+        // document.getElementById('overlay').style.display = "none";
 
         // Selecting and initialize the div for the works
         resetGallery();

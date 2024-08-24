@@ -281,11 +281,6 @@ body.with-banner {
 
 .modal-gallery{
 	width: 100%;
-	/* display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: space-between;
-	row-gap:1.875em; */
 	display: grid;
 	grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
 	grid-column-gap: 0.5em;
