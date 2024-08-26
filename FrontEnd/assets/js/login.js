@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const form = document.querySelector('form');
-    const loginButton = document.getElementById('login-button');
-    // const navLog = document.getElementById('nav-log');
+    const loginButton = document.getElementById('login-button');    
 
     form.addEventListener('submit', handleFormSubmission);
     
@@ -51,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleLoginClick(event) {
         event.preventDefault();
         const { email, password } = getFormValues();
-        // const user = { email, password };
 
         try {
             const data = await loginUser(email, password);

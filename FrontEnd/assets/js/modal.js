@@ -1,7 +1,7 @@
 import { deletePhoto, fetchCategories, uploadImage } from './api.js';
 import { displayWorks, resetGallery, updateHomeGallery } from './home.js';
 
-// document.addEventListener('DOMContentLoaded', () => {
+
 // Get the modal
 const adminModal = document.getElementById("admin-modal");
 const photoModal = document.getElementById("photo-modal");
@@ -89,7 +89,6 @@ categoriesDropList();
 
 const fileInput = document.getElementById('photo-upload');
 const preview = document.getElementById('preview');
-// const fileName = document.getElementById('file-name');
 const photoButton = document.getElementById('photo-button');
 const uploadText = document.querySelector('.upload p');
 const validateButton = document.getElementById('validate');
@@ -151,12 +150,6 @@ function handleFileChange() {
 }
 
 fileInput.addEventListener('change', handleFileChange);
-
-// function resetFileInput() {
-//     fileInput.removeEventListener('change', handleFileChange); // Disconnecting the event
-//     fileInput.value = ''; // Clearing the input
-//     fileInput.addEventListener('change', handleFileChange); // Reconnecting the event
-// }
 
 const checkFormFields = () => {
     const allFieldsFilled = fileInput.value && titleInput.value && categoryInput.value;
@@ -239,8 +232,7 @@ function resetPreview() {
     preview.id = ''; // Clearing the ID
     preview.style.display = 'none';    
     photoButton.style.display = 'flex';
-    uploadText.style.display = 'block';
-    // fileInput.value = '';                
+    uploadText.style.display = 'block';                
 }
 
 
@@ -255,20 +247,11 @@ export const setupDeleteIcon = (deleteIcon, modalCard) => {
             try {
                 const response = await deletePhoto(workId);
                 console.log('Réponse du serveur:', response);
-                modalCard.remove();               
-
-                // Selecting and initialize the div for the works
-                // resetGallery();
-                // const modalGallery = document.querySelector('.modal-gallery');
-                // modalGallery.innerHTML = "";
+                modalCard.remove();                             
 
                 // Updating the home gallery after deleting
                 await updateHomeGallery();
                 resetFilterToAll()
-                    
-                // Updating the galleries
-                // await displayWorks();
-
 
             } catch(error) {
                 console.error('Erreur:', error);

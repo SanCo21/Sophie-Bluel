@@ -127,7 +127,6 @@ export async function uploadImage(formData) {
 
         const data = await response.json();
         console.log('Réponse de l\'API:', data);          
-        // alert('Image téléchargée avec succès !');
         return data       
         
     } catch (error) {

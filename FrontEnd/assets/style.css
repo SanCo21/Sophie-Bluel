@@ -181,25 +181,14 @@ li:hover {
 	position: relative;
 }
 
-/* #portfolio h2 {
-	display: flex; 
-	justify-content: center;	
-	align-items: center; 
-	margin-top: 4em; 
-	margin-bottom: 1em;
-	position: absolute;
-} */
-
 #admin-link {
 	position: absolute;
 	right: -60%;
 	top: 60%;	
-	/* margin-left: 1em; */
 	transform: translateY(-50%);
 	font-size: 14px;
 	text-decoration: none;
 	color: black;
-	/* display: inline-block; */
 	display: none;
 }
 
@@ -267,7 +256,6 @@ body.with-banner {
 	border-left: none;
 	border-right: none;
 	border-bottom-color: #B3B3B3;
-	/* background-color: #B1663C; */
 }
 
 .modal-content h3 {
@@ -290,8 +278,6 @@ body.with-banner {
 .modal-gallery figure {
 	position: relative;
 	display: inline-block;
-	/* margin: 5px; */
-	/* width: 60%; */
 }
 
 .modal-gallery img {
@@ -351,7 +337,6 @@ body.with-banner {
 	cursor: pointer;
 }
 
-/* button:disabled, */
 input[type="submit"]:disabled {
     background-color: #A7A7A7;
 	color: white;
@@ -367,7 +352,6 @@ input[type="submit"]:disabled {
 	align-items: center;
 	justify-content: center;
 	background: rgba(232, 241, 246, 1);
-	/* padding: 0.5em;	 */
 }
 
 .upload i {	
@@ -385,7 +369,6 @@ input[type="submit"]:disabled {
 
 .upload img {
 	position: absolute;
-	/* max-width: 50%;  */
 	width: 100%;
     height: 100%;
     object-fit: contain;
@@ -397,7 +380,6 @@ input[type="submit"]:disabled {
 }
 
 .upload .file-label {
-    /* z-index: 1; */
     display: flex;
     flex-direction: column;
 	justify-content: center;
@@ -426,7 +408,6 @@ input[type="submit"]:disabled {
 }
 
 .file-label {	
-    /* display: inline-block; */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -456,7 +437,6 @@ input[type="submit"]:disabled {
 	top: 1em;
 	right: 1em;	
     color: black;
-    /* float: right; */
     font-size: 28px;
     font-weight: bold;
 }
@@ -479,7 +459,6 @@ input[type="submit"]:disabled {
 }
 
 .gallery img {
-	/* width: 100%; */
 	width: 305px;
 	height: 407px;
 	object-fit: cover;
@@ -507,8 +486,6 @@ figcaption {
 	margin : 1em 0.3em 4em 0.3em ;
 	padding: 0.7em 1em 0.7em 1em;
 	min-width: 80px;
-	/* width: 180px; */
-	/* width: auto; */
 	text-align: center;
 	border-radius: 60px ;
 	border: #1D6154;
@@ -622,7 +599,6 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
-	/* margin-top: 400px;	 */
 }
 
 footer li {
@@ -645,13 +621,3 @@ footer li {
 		margin-top: 30px;
 	}
 }
-
-/* @media (max-width: 1140px) {
-    #admin-link {
-        position: absolute; 
-        margin-top: 10px;
-		margin-left: 60px;
-		margin-bottom: 20px; 
-        display: block;
-    }
-} */
