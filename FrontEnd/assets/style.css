@@ -235,16 +235,17 @@ body.with-banner {
 
 .modal {
 	position: fixed;
+	/* position: relative; */
 	z-index: 2;    
 	top: 50%;
 	left: 50%;
-	width: 50%;
+	/* width: 45%; */
+	width: 630px;
 	height: auto;
 	border-radius: 10px;
 	background-color: white;
 	display: none;
 	transform: translate(-50%, -50%);
-	/* overflow: auto; */
 }
 
 .modal-content {	
@@ -270,7 +271,7 @@ body.with-banner {
 .modal-gallery{
 	width: 100%;
 	display: grid;
-	grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+	grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0fr;
 	grid-column-gap: 0.5em;
 	grid-row-gap: 1.875em;
 }
@@ -278,12 +279,15 @@ body.with-banner {
 .modal-gallery figure {
 	position: relative;
 	display: inline-block;
+	width: 5.5em;;
 }
 
 .modal-gallery img {
 	display: block;
-	width: 5.5em;
+	/* width: 5.5em; */
+	width: 100%;
 	height: 7.5em;
+	/* height: auto; */
 	object-fit: cover;	
 }
 
@@ -293,7 +297,7 @@ body.with-banner {
 	align-items: center;
 	justify-content: center;	
 	top: 0.525em;
-	right: 1em;	
+	right: 0.525em;	
 	width: 0.8em;
 	height: 0.8em;
 	cursor: pointer;	
@@ -420,7 +424,7 @@ input[type="submit"]:disabled {
 
 .arrow {
     position: absolute;
-    top: 1em;
+    top: 1.3em;
     left: 1em;
     font-size: 21px;
     cursor: pointer;
@@ -620,4 +624,17 @@ footer li {
 	.gallery {
 		margin-top: 30px;
 	}
+	.modal-gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}	
+}
+
+@media (max-width: 1400px) {
+	.modal-gallery {
+		display: flex;
+		flex-wrap: wrap;
+		/* justify-content: space-between; */
+	}	
 }

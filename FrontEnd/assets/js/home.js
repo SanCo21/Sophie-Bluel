@@ -141,7 +141,7 @@ async function displayCategories() {
                 if (image.getAttribute('category') === categoryId) {
                     image.parentElement.style.display = 'block'; // Showing the work if it matches the filter ID
                 } else {
-                    image.parentElement.style.display = 'none'; // // Hiding the work if it doesn't match the filter ID
+                    image.parentElement.style.display = 'none'; // Hiding the work if it doesn't match the filter ID
                 }
             });         
         

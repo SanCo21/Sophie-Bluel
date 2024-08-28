@@ -61,7 +61,6 @@ window.onclick = function(event) {
     }
 }
 
-
 // Adding the categories in the drop-down list
 const selectElement = document.getElementById('category');
 
@@ -79,6 +78,7 @@ async function categoriesDropList() {
             option.textContent = category.name;
             selectElement.appendChild(option);
         });
+
     } catch (error) {
         console.error('Error adding categories to select:', error);
     }
@@ -146,7 +146,7 @@ function handleFileChange() {
     }
     reader.readAsDataURL(file);
 
-    checkFormFields(); // Checking form fields after file selection
+    // checkFormFields(); // Checking form fields after file selection
 }
 
 fileInput.addEventListener('change', handleFileChange);
@@ -198,6 +198,7 @@ validateButton.addEventListener('click', async function(event) {
         // Reseting the form
         resetFileInput();
         resetModalForm();
+        checkFormFields();
 
         // Reseting the filter to "Tous"
         resetFilterToAll();
@@ -224,7 +225,7 @@ function resetModalForm() {
 
 function resetFilterToAll() {
     const allFilters = document.querySelector('.filters p:first-child');
-    allFilters.click(); // Simuler un clic sur le filtre "Tous"
+    allFilters.click(); // Simulating a click on the "Tous" filter
 }
 
 function resetPreview() {
@@ -240,7 +241,7 @@ export const setupDeleteIcon = (deleteIcon, modalCard) => {
 
     deleteIcon.onclick = async () => {
         event.preventDefault();
-        const workId = modalCard.getAttribute('work-id'); // photo ID is stocked in the attribute of the modalCard element
+        const workId = modalCard.getAttribute('work-id'); // Photo ID is stocked in the attribute of the modalCard element
         console.log('workId récupéré:', workId);
 
         if (workId) {
